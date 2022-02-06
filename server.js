@@ -1,6 +1,6 @@
-// if (process.env.NODE_ENV !== 'production') {
-//     require('dotenv').parse()
-// }
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
+}
 
 const express= require('express')
 const app = express()
@@ -13,7 +13,7 @@ app.set('layout','layouts/layout')
 app.use(expressLayouts)
 app.use(express.static('public'))
 var MongoClient = require('mongodb').MongoClient;
-MongoClient.connect('mongodb://127.0.0.1:27017/newDB', {useNewUrlParser: true})
+MongoClient.connect(process.env.DATABASE_URL, {useNewUrlParser: true})
 .catch(e => console.error('Connection error', e.message));
 //const db = MongoClient.connection
 // const mongoose = require('mongoose')
