@@ -23,7 +23,7 @@ MongoClient.connect(process.env.DATABASE_URL, {useNewUrlParser: true})
 //db.once('open', () => console.log('Connected to Mongoose'))
 
 app.use('/', indexRouter)
-app.listen(3000)
+app.listen(process.env.PORT | 3000)
 
 
 
